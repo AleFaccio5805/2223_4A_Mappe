@@ -1,4 +1,9 @@
 var map;
+var città = [
+    "Canelli",
+    "Torino",
+    "Miami"
+]
 
 window.onload = async function(){
     let busta = await fetch("https://nominatim.openstreetmap.org/search?format=json&city=Monticello+d'Alba");
@@ -19,6 +24,18 @@ window.onload = async function(){
             center: ol.proj.fromLonLat(coord),
             zoom: 15
         })
+    });
+
+    //Incercettazione del click sulla mappa
+    map.on("click", function(evento){
+        //proprietà pixel dell'evento
+
+        /** forEachFeatureAtPixel: passo da avere i pixel premuti ad avere un marker
+         * secondo parametro --> funzione richiamata per ogni feature trovata
+         */
+        let marker = map.forEachFeatureAtPixel(evento.pixel, feature => feature) // (feature) =>{return feature;});
+        if(marker)
+            alert(marker.name);
     });
     
     //Indirizzo riferito alla cartella principale (index.html, non nel js)
