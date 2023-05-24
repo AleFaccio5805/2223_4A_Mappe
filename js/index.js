@@ -1,15 +1,21 @@
 var map;
-var città = [
-    "Canelli",
+var citta = [
+    "Roma",
     "Torino",
-    "Miami"
+    "Milano",
+    "Napoli",
+    "Bari",
+    "Catanzaro",
+    "Bologna",
+    "Trento",
+    "Perugia",
+    "Piacenza"
 ]
 
 window.onload = async function(){
-    let busta = await fetch("https://nominatim.openstreetmap.org/search?format=json&city=Monticello+d'Alba");
+    let busta = await fetch("https://nominatim.openstreetmap.org/search?format=json&city=" + citta[0]);
     let vet = await busta.json();
     let coord = [parseFloat(vet[0].lon), parseFloat(vet[0].lat)];
-
 
     //Definisco una mappa
     map = new ol.Map({
@@ -22,25 +28,32 @@ window.onload = async function(){
         view:new ol.View({
             /* Array di Float: coordinaete (lon.lat) */
             center: ol.proj.fromLonLat(coord),
-            zoom: 15
+            zoom: 5
         })
     });
 
-    //Incercettazione del click sulla mappa
-    map.on("click", function(evento){
-        //proprietà pixel dell'evento
+        
+    for(var i = 0; i < citta.length; i++){
+            
+        busta = await fetch("https://nominatim.openstreetmap.org/search?format=json&city=" + citta[i]);
+        vet = await busta.json();
+        coord = [parseFloat(vet[0].lon), parseFloat(vet[0].lat)];
+        //Incercettazione del click sulla mappa
+        map.on("click", function(evento){
+            //proprietà pixel dell'evento
 
-        /** forEachFeatureAtPixel: passo da avere i pixel premuti ad avere un marker
-         * secondo parametro --> funzione richiamata per ogni feature trovata
-         */
-        let marker = map.forEachFeatureAtPixel(evento.pixel, feature => feature) // (feature) =>{return feature;});
-        if(marker)
-            alert(marker.name);
-    });
-    
-    //Indirizzo riferito alla cartella principale (index.html, non nel js)
-    let layer1 = aggiungiLayer(map, "img/marker.png");
-    aggiungiMarker(layer1, "Test", coord[0], coord[1]);
+            /** forEachFeatureAtPixel: passo da avere i pixel premuti ad avere un marker
+             * secondo parametro --> funzione richiamata per ogni feature trovata
+             */
+            let marker = map.forEachFeatureAtPixel(evento.pixel, feature => feature) // (feature) =>{return feature;});
+            if(marker)
+                alert(marker.name);
+        });
+        
+        //Indirizzo riferito alla cartella principale (index.html, non nel js)
+        let layer1 = aggiungiLayer(map, "img/marker.png");
+        aggiungiMarker(layer1, "Test", coord[0], coord[1]);
+    }
 }
 
 /* creazione nuovo layer */
