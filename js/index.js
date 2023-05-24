@@ -34,6 +34,7 @@ window.onload = async function(){
 
         
     for(var i = 0; i < citta.length; i++){
+            
         busta = await fetch("https://nominatim.openstreetmap.org/search?format=json&city=" + citta[i]);
         vet = await busta.json();
         coord = [parseFloat(vet[0].lon), parseFloat(vet[0].lat)];
@@ -52,7 +53,7 @@ window.onload = async function(){
          */
         let marker = map.forEachFeatureAtPixel(evento.pixel, feature => feature) // (feature) =>{return feature;});
         if(marker)
-            alert(marker.mame);
+            alert(marker.name);
     });
 }
 
