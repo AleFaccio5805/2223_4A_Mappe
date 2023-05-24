@@ -1,15 +1,14 @@
 var map;
 var citta = [
-    {nome:"Roma", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."}
-    /*"Torino",
-    "Milano",
-    "Napoli",
-    "Bari",
-    "Catanzaro",
-    "Bologna",
-    "Trento",
-    "Perugia",
-    "Piacenza"*/
+    {nome:"Roma", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."},
+    {nome:"Torino", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."},
+    {nome:"Milano", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."},
+    {nome:"Napoli", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."},
+    {nome:"Catanzaro", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."},
+    {nome:"Perugia", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."},
+    {nome:"Bologna", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."},
+    {nome:"Trento", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."},
+    {nome:"Piacenza", desc: "Roma è il capoluogo del Lazio ma anche la capitale d'Italia, composta da 2.863.843 abitanti, fondata il 21 aprile del 753 a.C., su sette colli. Ancora oggi si possono vedere nel suo centro storico. Roma, è stata da millenni capitale del Impero Romano e si estendeva su tutto il bacino del Mar Mediterraneo."}
 ];
 
 let div = `
@@ -61,8 +60,8 @@ window.onload = async function(){
          * secondo parametro --> funzione richiamata per ogni feature trovata
          */
         let marker = map.forEachFeatureAtPixel(evento.pixel, feature => feature); // (feature) =>{return feature;});
-        alert(marker.dati.nome + " - " + marker.dati.desc);
-        console.log(marker.dati);
+        /*alert(marker.dati.nome + " - " + marker.dati.desc);
+        console.log(marker.dati);*/
 
         let body = document.getElementsByTagName("main")[0];
         var modal = document.getElementById("myModal");
